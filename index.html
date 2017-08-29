@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-ng-app="MetronicApp">
+<head>
+    <title>Verona</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <base href="/index.html" />
+    <link href="assets/plugins/js/dataTable/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/css/components.min.css" rel="stylesheet" />
+    <link href="assets/css/default.min.css" rel="stylesheet" />
+    <link href="assets/css/layout.min.css" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/plugins/datetimepicker/bootstrap-datetimepicker.min.css">
+    <link href="assets/plugins/ng-tags-input.min/ng-tags-input.bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/plugins/ng-tags-input.min/ng-tags-input.min.css" rel="stylesheet" />
+    <link href="assets/plugins/js/dataTable/css/plugins-md.min.css" rel="stylesheet" />
+    <link href="assets/plugins/select2/select2-bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/plugins/select2/select2.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body ng-controller="AppController" class="page-header-fixed page-sidebar-closed-hide-logo" ng-class="{'page-content-white': settings.layout.pageContentWhite,'page-container-bg-solid': settings.layout.pageBodySolid, 'page-sidebar-closed': settings.layout.pageSidebarClosed}">
+    <div ui-view autoscroll="false"></div>
+    <script src="assets/plugins/js/jquery.min.js"></script>
+    <script src="assets/plugins/momenjs/moment.min.js"></script>
+    <script src="assets/plugins/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="assets/plugins/js/angular.min.js"></script>
+    <script src="assets/plugins/js/angular-messages.min.js"></script>
+    <script src="assets/plugins/js/angular-sanitize.min.js"></script>
+    <script src="assets/plugins/js/angular-ui-router.min.js"></script>
+    <script src="assets/plugins/js/ocLazyLoad.min.js"></script>
+    <script src="assets/plugins/js/ui-bootstrap-tpls.min.js"></script>
+    <script src="assets/plugins/js/app.min.js"></script>
+    <script src="assets/plugins/js/demo.min.js"></script>
+    <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="scripts/main.js" type="text/javascript"></script>
+    <script src="scripts/controllers/incident/incidentDetail.controller.js" type="text/javascript"></script>
+    <script src="scripts/controllers/incident/incidentAdd.controller.js" type="text/javascript"></script>
+    <script src="scripts/controllers/incident/incidentCeo.controller.js" type="text/javascript"></script>
+    <script src="scripts/controllers/incident/incidentClose.controller.js" type="text/javascript"></script>
+    <script src="scripts/controllers/admin/jobTypeDetail.controller.js" type="text/javascript"></script>
+    <script src="scripts/directives/directive.js"></script>
+    <script src="scripts/const/config.js"></script>
+    <script src="scripts/const/messages.js"></script>
+    <script src="scripts/services/utils.js"></script>
+    <script src="scripts/services/dataService.js"></script>
+    <script src="Scripts/services/logout.factory.js"></script>
+    <script src="assets/plugins/js/dataTable/js/angular-datatables.min.js"></script>
+    <script src="assets/plugins/js/dataTable/js/datatables.all.min.js"></script>
+    <script src="assets/plugins/ng-tags-input.min/ng-tags-input.min.js"></script>
+    <script src="assets/plugins/js/dataTable/js/table-datatables-managed.min.js"></script>
+    <script src="assets/plugins/select2/components-select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+    <script src="assets/plugins/js/jquery.freezeheader.js"></script>
+    <script>
+
+        $( 'body' ).on( 'click', '.btn-checkbox', function ()
+        {
+            if ( $( this ).hasClass( 'active' ) )
+            {
+            $(this).removeClass('active');
+        }
+            else
+            {
+            $(this).addClass('active');
+            }
+        } );
+    </script>
+    <script type="text/ng-template" id="messageModal.html">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-body">
+                <h2>{{message}}</h2>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="close()">OK</button>
+            </div>
+        </div>
+    </script>
+
+</body>
+<!-- END BODY -->
+</html>

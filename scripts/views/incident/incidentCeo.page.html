@@ -1,0 +1,49 @@
+<!-- Modal content-->
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="close()">&times;</button>
+        <h4 class="modal-title text-uppercase text-center text-bold">Assign CEO</h4>
+    </div>
+    <div class="modal-body">
+        <div>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="email">Incident:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  readonly ng-value="incident.IncidentNumber">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">Type:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control"  readonly ng-value="incident.IncidentTypeName">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Date/time:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" readonly ng-value="timeReported">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Location:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" readonly ng-value="incident.Location">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="pwd">CEO</label>
+                    <div class="col-sm-10">
+                        <select name="" ng-disabled="incident.Ceo != null" ng-options="item.Name for item in ceos track by item.Code" ng-model="selectedCeo" class="form-control">
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn green" ng-disabled="incident.Ceo != null" ng-click="assignCeo()">Assign to CEO
+        </button>
+        <button type="button" class="btn btn-default" ng-click="close()">Cancel</button>
+    </div>
+</div>

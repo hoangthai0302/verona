@@ -1,0 +1,35 @@
+﻿--------------- Search, Sort and Paging RejectionReason --------------- (DONE)
+
+GET - http://localhost:60483/RejectionReason/RejectionReasonPaging?PageNumber=1&PageSize=500&SortColumn=JobNumber&SortAsc=
+
+PageNumber: int -- Page current -- start from 1
+PageSize: int -- Page display in page
+SortColumn: string -- Name column sort
+SortAsc: bool -- Sort ASC or DESC -- default: true (ASC)
+
+---------------Insert RejectionReason --------------- (DONE)
+
+POST - http://localhost:60483/RejectionReason/RejectionReasonInsert
+
+"data": {
+	"Description": string,
+    "UpdatedBy": string
+}
+
+--------------- Update RejectionReason --------------- (DONE)
+
+PUT - http://localhost:60483/RejectionReason/RejectionReasonUpdate
+
+"data": {
+	"Description": string,
+    "UpdatedBy": string,
+	"ReasonNumber": long
+}
+
+--------------- Close RejectionReason --------------- (DONE)
+
+DELETE - http://localhost:60483/RejectionReason/RejectionReasonDelete
+
+"data": {
+	"reasonNumber": long
+}

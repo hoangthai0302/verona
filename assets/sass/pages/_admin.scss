@@ -1,0 +1,57 @@
+.admin-page {
+  .btn-admin-page {
+    width: 100px;
+    height: 50px;
+    margin-right: 20px;
+    i {
+      font-size: 30px;
+    }
+  }
+  .col-right {
+    padding-right: 20%;
+    padding-left: 20%;
+  }
+  .job-parameters-page{
+    .col-right{
+      button{
+        &:first-child{
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+
+.table-job-parameters {
+  td {
+    &:first-child {
+      width: 10%;
+    }
+  }
+}
+
+#popup-view-task-list {
+  table {
+    th:not(.td-des){
+      width: 20%;
+    }
+  }
+
+}
+.reject-reason-page{
+  .col-right{
+    @include flex-column-between;
+    height: 200px;
+  }
+}
+.popup-center{
+  .modal-dialog{
+    position: relative;
+    height: 100%;
+    margin: auto;
+    .modal-content{
+      @include position-center;
+      width: 100%;
+    }
+  }
+}

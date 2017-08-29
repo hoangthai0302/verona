@@ -1,0 +1,10 @@
+.table-content{
+  overflow-x: auto;
+}
+.table{
+  .code-red{
+    td{
+      color: $red;
+    }
+  }
+}

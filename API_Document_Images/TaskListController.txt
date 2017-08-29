@@ -1,0 +1,38 @@
+﻿--------------- Get TaskList By JobTypeCode --------------- (DONE)
+
+GET - http://localhost:60483/TaskList/TaskListGetByJobTypeCode?jobTypeCode=8
+
+jobTypeCode - long
+
+---------------Insert TaskList --------------- (DONE)
+
+POST - http://localhost:60483/TaskList/TaskListInsert
+
+"data": {
+    "JobTypeCode": long,
+	"StepNumber": int,
+    "TaskDescription": string,
+    "IsRequired": bool,
+    "DependsOn": int
+}
+
+--------------- Update TaskList --------------- (DONE)
+
+PUT - http://localhost:60483/TaskList/TaskListUpdate
+
+"data": {
+	"TaskId": long,
+    "JobTypeCode": long,
+	"StepNumber": int,
+    "TaskDescription": string,
+    "IsRequired": bool,
+    "DependsOn": int
+}
+
+--------------- Close TaskList --------------- (DONE)
+
+DELETE - http://localhost:60483/TaskList/TaskListDelete
+
+"data": {
+	"taskId": long
+}

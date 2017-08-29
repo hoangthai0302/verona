@@ -1,0 +1,583 @@
+﻿<div class="content-styles-first">
+  <div class="row-first row">
+    <div class="col-sm-12 col-lg-10">
+      <div class="col-left row">
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-3">
+          <fieldset>
+            <legend>Date</legend>
+            <div class="info-details">
+              <div class="info-details-radio">
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="jobFilter.date = FILTER.TODAY"  ng-checked="jobFilter.date == FILTER.TODAY" name="date">Today</label>
+                </div>
+                <div class="radio-inline row">
+                  <label class="col-sm-12"><input type="radio" ng-click="jobFilter.date = FILTER.THIS_WEEK"  ng-checked="jobFilter.date == FILTER.THIS_WEEK" name="date">This week</label>
+                </div>
+                <div class="radio row">
+                  <label class="col-sm-12"><input type="radio" ng-click="jobFilter.date = FILTER.THIS_MONTH"  ng-checked="jobFilter.date == FILTER.THIS_MONTH" name="date">This month</label>
+                </div>
+              </div>
+              <div class="form-horizontal">
+                <div class="form-group flex-center-vetical">
+                  <label class="control-label col-xs-3 col-sm-3 no-padding-top">
+                    <div class="radio no-padding-top">
+                      <label><input type="radio"  ng-click="jobFilter.date = FILTER.DATE_RANGE"  ng-checked="jobFilter.date == FILTER.DATE_RANGE" name="date">From</label>
+                    </div>
+                  </label>
+                  <div class="col-xs-9 col-sm-9">
+                    <input type="text" id="jobDateFrom" readonly ng-disabled="jobFilter.date !== FILTER.DATE_RANGE" class="form-control" ng-class="{'no-bg':jobFilter.date == FILTER.DATE_RANGE}" custom-datepicker ng-model = 'jobFilter.dateFrom'>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-3 col-sm-3 padding-left-35">To</label>
+                  <div class="col-xs-9 col-sm-9">
+                    <input type="text" id="jobDateTo" readonly ng-disabled="jobFilter.date !== FILTER.DATE_RANGE" class="form-control" ng-class="{'no-bg':jobFilter.date == FILTER.DATE_RANGE}" custom-datepicker ng-model = 'jobFilter.dateTo'>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>VRM</legend>
+            <div class="info-details">
+                <div class="radio">
+                  <label><input type="radio" ng-click="jobFilter.vrm = FILTER.ALL"  ng-checked="jobFilter.vrm == FILTER.ALL" name="vrm">All</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" ng-click="jobFilter.vrm = FILTER.SELECTED"  ng-checked="jobFilter.vrm == FILTER.SELECTED" name="vrm">Selected</label>
+                </div>
+                <div class="box-selected">
+                  <input type="text" ng-disabled="jobFilter.vrm !== FILTER.SELECTED" upper-case ng-model="jobFilter.selectedVRM" name="textSelected" class="form-control">
+                </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>CEO</legend>
+            <div class="info-details">
+              <div class="radio">
+                <label><input type="radio" ng-click="jobFilter.ceo = FILTER.ALL"  ng-checked="jobFilter.ceo == FILTER.ALL" name="ceo">All</label>
+              </div>
+              <div class="info-details-selected">
+                <div class="radio">
+                  <label><input type="radio" ng-click="jobFilter.ceo = FILTER.SELECTED"  ng-checked="jobFilter.ceo == FILTER.SELECTED" name="ceo">Selected</label>
+                </div>
+                <div class="box-selected">
+                    <select name="" ng-disabled="jobFilter.ceo !== FILTER.SELECTED" ng-options="item.Name for item in ceos track by item.Code" ng-model="jobFilter.selectedCEO" class="form-control">
+                      <option value=""></option>
+                    </select>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>Priority</legend>
+            <div class="info-details">
+              <div class="radio">
+                <label><input type="radio" ng-click="jobFilter.priority = FILTER.ALL"  ng-checked="jobFilter.priority == FILTER.ALL" name="priority">All</label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" ng-click="jobFilter.priority = FILTER.SELECTED"  ng-checked="jobFilter.priority == FILTER.SELECTED" name="priority">Selected</label>
+              </div>
+              <div class="box-selected">
+                  <select class="form-control" ng-disabled="jobFilter.priority !== FILTER.SELECTED" ng-model="jobFilter.selectedPriority" ng-options="item for item in priorities"></select>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>Status</legend>
+            <div class="info-details">
+              <div class="info-details-radio">
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="jobFilter.status = JOB_STATUS.ALL"  ng-checked="jobFilter.status === JOB_STATUS.ALL" name="status">All</label>
+                </div>
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="jobFilter.status = JOB_STATUS.NEW;"  ng-checked="jobFilter.status === JOB_STATUS.NEW" name="status">New</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" ng-click="jobFilter.status = JOB_STATUS.COMPLETED"  ng-checked="jobFilter.status === JOB_STATUS.COMPLETED" name="status">Complete</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" ng-click="jobFilter.status = JOB_STATUS.IN_PROGRESS"  ng-checked="jobFilter.status === JOB_STATUS.IN_PROGRESS" name="status">In progress</label>
+                </div>
+                <div class="radio">
+                  <label><input type="radio" ng-click="jobFilter.status = JOB_STATUS.CANCELLED"  ng-checked="jobFilter.status === JOB_STATUS.CANCELLED" name="status">Cancelled</label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info job-queue col-xs-12 col-sm-6 col-lg-1">
+          <div class="box-btn-incident">
+            <button type="button" ng-click="search()" class="btn btn-primary button-default">Search</button>
+            <button type="button" ng-click="reset()" class="btn btn-primary button-default">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-lg-2">
+      <div class="col-right job-queue">
+      </div>
+    </div>
+  </div>
+  <div class="row-second row">
+    <div class="col-xs-12 col-md-10">
+      <div class="col-left">
+        <div class="table-content">
+          <table class="table table-bordered table-condensed table-dark table-responsive" style="table-layout: fixed">
+            <thead>
+            <tr class="pointer">
+              <th ng-click="handleSort('JobNumber')" style="width:100px;" ng-class="{'toggle-sort':isActive('JobNumber')}">Job # <i ng-class="getSortClass('JobNumber')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('JobTypeDescription')" ng-class="{'toggle-sort':isActive('JobTypeDescription')}">Description <i ng-class="getSortClass('JobTypeDescription')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('TimeReported')" style="width:130px;" ng-class="{'toggle-sort':isActive('TimeReported')}">Date/Time <i ng-class="getSortClass('TimeReported')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Vrm')" style="width:130px;" ng-class="{'toggle-sort':isActive('Vrm')}">VRM <i ng-class="getSortClass('Vrm')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Location')" ng-class="{'toggle-sort':isActive('Location')}">Location <i ng-class="getSortClass('Location')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('CeoName')" ng-class="{'toggle-sort':isActive('CeoName')}">CEO <i ng-class="getSortClass('CeoName')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Priority')" style="width:100px;" class="text-center" ng-class="{'toggle-sort':isActive('Priority')}">Priority <i ng-class="getSortClass('Priority')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Status')" style="width:100px;" class="text-center" ng-class="{'toggle-sort':isActive('Status')}">Status <i ng-class="getSortClass('Status')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Notes')" ng-class="{'toggle-sort':isActive('Notes')}">Notes <i ng-class="getSortClass('Notes')" aria-hidden="true"></i></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="cursor-default" ng-repeat="job in jobs track by $index"
+                ng-click="onSelectJob(job)"
+                ng-class="{'code-red':Utils.isCodeRed(job),'active':job.JobNumber == selectedJob.JobNumber, 'text-danger':checkSlaExceed(job)}">
+              <td>{{job.JobNumber}}</td>
+              <td>{{job.JobTypeDescription}}</td>
+              <td>{{Utils.extractDatetime(job.TimeReported, format)}}</td>
+              <td>{{job.Vrm}}</td>
+              <td>{{job.Location}}</td>
+              <td>{{job.CeoName}}</td>
+              <td class="text-center">{{job.Priority}}</td>
+              <td class="text-center">{{job.Status}}</td>
+              <td>{{job.Notes}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-show="pager.pages.length > 1">
+          <ul class="pagination pull-right">
+            <li ng-class="{'disabled': pager.currentPage == 1}" ><a href="javascript:void(0)" ng-click="gotoPage(1)"><<</a></li>
+
+            <li ng-repeat = "i in pager.pages" ng-class="{'active':pager.currentPage == i}">
+              <a href="javascript:void(0)" ng-click="gotoPage(i)" >{{i}}</a>
+            </li>
+
+            <li ng-class="{'disabled': pager.currentPage == pager.totalPages}"><a href="javascript:void(0)" ng-click="gotoPage(pager.totalPages)"> >> </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-2">
+      <div class="col-right">
+        <div class="box-btn-right">
+          <div class="row">
+            <div class="col-xs-4 col-md-12">
+              <button type="button" class="btn btn-success button-default" ng-click="viewJobProgress()">View progress
+              </button>
+            </div>
+            <div class="col-xs-4 col-md-12">
+              <button type="button" class="btn btn-success button-default" ng-click="changeDetailPopup()">Change details
+              </button>
+            </div>
+            <div class="col-xs-4 col-md-12">
+              <button type="button"
+
+                      class="btn btn-success button-default"
+                      ng-click="jobPopup('cancel')">Cancel Job
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 col-md-12">
+              <button type="button"
+
+                      class="btn btn-success button-default"
+                      ng-click="jobPopup('reject')">Reject Job
+              </button>
+            </div>
+            <div class="col-xs-4 col-md-12">
+              <button type="button"
+
+                      class="btn btn-success button-default"
+                      ng-click="jobPopup('complete')">Set as Complete
+              </button>
+            </div>
+            <div class="col-xs-4 col-md-12">
+              <button type="button" class="btn btn-success button-default" ng-click="openGovernmentWebSite()" ng-disabled="disabledReportAbandoned">Report as abandoned
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+        <div class="list-status" style="padding-left:20px; padding-top:40px">
+          <p class="text-bold">Status:</p>
+          <p class="text-bold">C - Complete</p>
+          <p class="text-bold">N - New</p>
+          <p class="text-bold">P - In progress</p>
+          <p class="text-bold">R - Rejected</p>
+          <p class="text-bold">X - Job cancelled</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<script type="text/ng-template" id="viewJobProgressModal.html">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-uppercase text-center text-bold">View job progress</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row flex-center-vetical form-group">
+          <p class="col-md-2 text-right text-bold">Job #:</p>
+          <div class="col-md-3">
+            <input type="text" readonly ng-value="job.JobNumber" class="form-control" value="39" readonly>
+          </div>
+          <div class="col-md-6">
+            <input type="text" class="form-control" ng-value="job.Description" readonly>
+          </div>
+        </div>
+        <div class="row flex-center-vetical form-group">
+          <p class="col-md-2 text-right text-bold">CEO:</p>
+          <div class="col-md-9">
+            <input type="text" readonly class="form-control" ng-value="job.CeoName" readonly>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-offset-2 col-md-9">
+            <table class="table table-bordered table-hover table-dark">
+            <thead>
+            <tr class="info">
+              <th class="text-center">Step # </th>
+              <th class="width-50">Description</th>
+              <th class="text-center">Step Complete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat = "t in tasks track by t.Id">
+              <td class="text-center">{{t.StepNumber}}</td>
+              <td>{{Utils.shorten(t.TaskDescription)}}</td>
+              <td class="text-center" ><input type="text" yes-no ng-model="t.Completed" class="no-border text-center"></td>
+              <!--<td class="text-center" ng-if="job.Status == 'C' || job.Status == 'X'">{{t.Completed}}</td>-->
+            </tr>
+
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button"
+
+                class="btn green"
+                ng-click="updateJobTasks()">Apply changes</button>
+        <button type="button" class="btn btn-default" ng-click="close()">Cancel</button>
+      </div>
+    </div>
+</script>
+
+
+<!-- =====================Modals==========================-->
+
+
+
+
+
+<script type="text/ng-template" id="jobDetailModal.html">
+
+    <!-- Modal content-->
+    <form name="jobDetailForm" ng-submit="updateJobQueue(jobDetailForm.$valid,jobDetailForm.$error)" class="modal-content" novalidate>
+      <div class="modal-header">
+        <h4 class="modal-title text-center text-bold text-capitalize">Change job details</h4>
+      </div>
+      <div class="modal-body">
+        <div  class="form-change-details" >
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Job #:</label>
+                  <div class="col-xs-8">
+                    <input type="text" ng-value="job.JobNumber" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Description:</label>
+                  <div class="col-xs-8">
+                    <input type="text" ng-value="job.JobTypeName" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Time created:</label>
+                  <div class="col-xs-8">
+                    <input type="text" id="job_detail_time_created" readonly ng-value="createdDatetime" class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">SLA time:</label>
+                  <div class="col-xs-8">
+                    <input type="text" readonly ng-disabled="slaDateTime == null" id="job_detail_slatime" class="form-control" ng-class="{'no-bg' : slaDateTime != null}" custom-date-timepicker ng-model="slaDateTime">
+                  </div>
+                </div>
+                <div class="form-group"  ng-class="{ 'has-error' : jobDetailForm.location.$error.required  && !jobDetailForm.location.$pristine }">
+                  <label class="control-label col-xs-4">Location*:</label>
+                  <div class="col-xs-8">
+                    <input type="text" name="location" ng-model="job.Location" required  max-length50 class="form-control">
+                    <div ng-messages="jobDetailForm.location.$error"
+                         ng-if="!jobDetailForm.location.$pristine" class="text-danger">
+                      <div ng-message="required">This field is required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Status:</label>
+                  <div class="col-xs-3">
+                    <input type="text" ng-value="job.Status" class="form-control" readonly>
+                  </div>
+                  <label class="control-label col-xs-2">Priority:</label>
+                  <div class="col-xs-3">
+                      <select ng-model="job.Priority" class="form-control no-padding" ng-options="item for item in priorities"></select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="form-horizontal">
+                <div class="form-group">
+                  <label class="control-label col-xs-4">CEO:</label>
+                  <div class="col-xs-8">
+                    <select name="" ng-disabled="job.Status != 'N' && job.Status != 'R'" class="form-control" ng-options="item.Name for item in ceos track by item.Code" ng-model="selectedCeo">
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group"  ng-class="{ 'has-error' : jobDetailForm.vrm.$error.required  && !jobDetailForm.vrm.$pristine }">
+                  <label class="control-label col-xs-4">VRM*:</label>
+                  <div class="col-xs-8">
+                    <input type="text" name="vrm" upper-case ng-model="job.Vrm" required max-length50 class="form-control">
+                    <div ng-messages="jobDetailForm.vrm.$error"
+                         ng-if="!jobDetailForm.vrm.$pristine" class="text-danger">
+                      <div ng-message="required">This field is required</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Make:</label>
+                  <div class="col-xs-8">
+                      <select name="make" class="form-control" ng-options="item.Make for item in vehicleMakes track by item.MakeNumber" ng-model="selectedMake">
+                          <option value=""></option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Colour:</label>
+                  <div class="col-xs-8">
+                      <select name="color" class="form-control" ng-options="item.Colour for item in vehicleColors track by item.ColourNumber"  ng-model="selectedColor">
+                          <option value=""></option>
+                      </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Latitude:</label>
+                  <div class="col-xs-8">
+                    <input type="text" latitude ng-model = "job.Latitude" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-4">Longitude:</label>
+                  <div class="col-xs-8">
+                    <input type="text" longitude ng-model="job.Longitude" class="form-control">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-horizontal col-sm-12">
+              <label for="" class="control-label">Notes:</label>
+              <textarea name="" id="" rows="5" ng-model="job.Notes" max-length-notes class="form-control no-resize"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn green" >Apply changes</button>
+        <button type="button" class="btn btn-default" ng-click="close()">Cancel</button>
+      </div>
+    </form>
+</script>
+
+<!-- =====================CANCEL JOB==========================-->
+
+<script type="text/ng-template" id="cancelJobModal.html">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center text-bold">Are you sure you want to cancel this job?</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-sm-offset-1 col-sm-3">Job #:</label>
+              <div class="col-sm-5">
+                <input type="text" readonly ng-value="job.JobNumber" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-offset-1 col-sm-3">Description:</label>
+              <div class="col-sm-5 ">
+                <input readonly type="text" ng-value="job.JobTypeDescription" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-offset-1 col-sm-3">CEO:</label>
+              <div class="col-sm-5 ">
+                  <input readonly type="text" ng-value="job.CeoName" class="form-control">
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-horizontal col-sm-offset-2 col-sm-8">
+                <label for="" class="control-label">Enter a reason for cancelling this job:</label>
+                <textarea name="" ng-model="reason" max-length-notes rows="5" class="form-control no-resize"></textarea>
+              </div>
+            </div>
+          </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn green" ng-click="cancelJob()">YES
+        </button>
+        <button type="button" class="btn btn-default" ng-click="close()">NO</button>
+      </div>
+    </div>
+</script>
+
+
+<!-- =====================REJECT JOB==========================-->
+
+<script type="text/ng-template" id="rejectJobModal.html">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center text-bold">Are you sure you want to reject this job?</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-offset-1 col-sm-3">Job #:</label>
+                <div class="col-sm-5">
+                    <input type="text" readonly ng-value="job.JobNumber" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-1 col-sm-3">Description:</label>
+                <div class="col-sm-5 ">
+                    <input readonly type="text" ng-value="job.JobTypeDescription" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-1 col-sm-3">CEO:</label>
+                <div class="col-sm-5 ">
+                    <input readonly type="text" ng-value="job.CeoName" class="form-control">
+                </div>
+            </div>
+          <div class="form-group">
+            <label class="control-label col-sm-offset-1 col-sm-3">Rejection Reason:</label>
+            <div class="col-sm-5 ">
+                <select name="make" class="form-control" ng-options="item.Description for item in rejectionReasons track by item.ReasonNumber" ng-model="selectedReason"></select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn green" ng-click="rejectJob()">YES</button>
+        <button type="button" class="btn btn-default" ng-click="close()">NO</button>
+      </div>
+    </div>
+</script>
+
+<!-- ===================== COMPLETE JOB==========================-->
+
+
+<script type="text/ng-template" id="completeJobModal.html">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center text-bold">Are you sure want to set the status of this job to 'complete'?</h4>
+      </div>
+      <div class="modal-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="control-label col-sm-offset-1 col-sm-3">Job #:</label>
+                <div class="col-sm-5">
+                    <input type="text" readonly ng-value="job.JobNumber" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-1 col-sm-3">Description:</label>
+                <div class="col-sm-5 ">
+                    <input readonly type="text" ng-value="job.JobTypeDescription" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-offset-1 col-sm-3">CEO:</label>
+                <div class="col-sm-5 ">
+                    <input readonly type="text" ng-value="job.CeoName" class="form-control">
+                </div>
+            </div>
+          <div class="row">
+            <div class="form-horizontal col-sm-offset-2 col-sm-8">
+              <label for="" class="control-label">Enter a reason:</label>
+              <textarea rows="5" max-length-notes ng-model="reason" class="form-control no-resize"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn green" ng-click="completeJob()">YES
+        </button>
+        <button type="button" class="btn btn-default" ng-click="close()">NO</button>
+      </div>
+    </div>
+</script>
+
+<script type="text/ng-template" id="noCeoSelectedModal.html">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>No CEO has been selected</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+</script>
+
+
+<script type="text/ng-template" id="closeJobModal.html">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <h2>Enter the reason you are closing the incident before continuing</h2>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+</script>

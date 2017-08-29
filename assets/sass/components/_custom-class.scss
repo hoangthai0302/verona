@@ -1,0 +1,41 @@
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-border{
+  border:none;
+}
+
+.no-bg {
+  background: none !important;
+}
+
+.flex-center-vetical {
+  display: flex;
+  align-items: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.padding-left-35{
+  padding-left: 35px !important;
+}
+.dark {
+  color: $dark;
+}

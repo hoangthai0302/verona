@@ -1,0 +1,15 @@
+﻿<div data-ng-include="'scripts/tpl/header.html'" data-ng-controller="HeaderController" class=""> </div>
+<div class="clearfix"> </div>
+<div class="page-container wrapper-tabs__content">
+    <div data-ng-include="'scripts/tpl/page-head.html'" data-ng-controller="PageHeadController" class="page-head"> </div>
+    <div class="page-content" style="min-height:782px;background-color:#ffffff">
+        <div class="container-fluid">
+            <div ui-view class="fade-in-up"> </div>
+        </div>
+    </div>
+    <a href="javascript:;" class="page-quick-sidebar-toggler">
+        <i class="icon-login"></i>
+    </a>
+    <div data-ng-include="'scripts/tpl/quick-sidebar.html'" data-ng-controller="QuickSidebarController" class="page-quick-sidebar-wrapper"></div>
+</div>
+<div data-ng-include="'scripts/tpl/footer.html'" data-ng-controller="FooterController"> </div>

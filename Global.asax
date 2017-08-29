@@ -1,0 +1,1 @@
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="Verona.WebUI.MvcApplication" Language="C#" %>

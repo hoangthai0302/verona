@@ -1,0 +1,573 @@
+﻿.container {
+    width: 100% !important;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.form-control {
+    padding: 6px 8px;
+}
+
+.select2-container {
+    line-height: 10px;
+}
+
+.checkbox, .form-horizontal .checkbox {
+    margin-bottom: 15px;
+}
+
+.select2-container .select2-selection--single {
+    height: auto;
+}
+
+.checkbox label::after {
+    padding-left: 0px;
+    padding-right: 2px;
+    top: 8px;
+}
+
+.form-horizontal .control-label {
+    padding-top: 0px !important;
+}
+
+.form-controll {
+    font-size: 13px;
+}
+
+label {
+    font-size: 13px;
+    line-height: 34px;
+    margin-bottom: 0px;
+}
+
+.select2-container .select2-selection--multiple .select2-selection__rendered {
+    padding-left: 0px !important;
+}
+
+.resource-planning-project {
+    margin-bottom: 20px;
+}
+
+    .resource-planning-project .col-sm-1, .resource-planning-name .col-sm-1 {
+        padding: 0px;
+        min-width: 34px;
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: 1;
+    }
+
+    .resource-planning-project tags-input .host, .resource-planning-name tags-input .host {
+        margin: 10px 0px 0px 0px;
+    }
+
+    .resource-planning-project tags-input .tags, .resource-planning-name tags-input .tags {
+        box-shadow: none;
+        border: 1px solid #c2cad8;
+        min-height: 34px;
+    }
+
+        .resource-planning-project tags-input .tags .input, .resource-planning-name tags-input .tags .input {
+            display: inline-block;
+            min-width: auto;
+        }
+
+    .resource-planning-project tags-input span, .resource-planning-name tags-input span {
+        max-width: 100px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .resource-planning-project tags-input .tags .tag-item .remove-button, .resource-planning-name tags-input .tags .tag-item .remove-button {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 4px;
+    }
+
+.resource-planning-table {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    overflow-y: inherit;
+    overflow-x: scroll;
+    height: 650px;
+}
+    .resource-planning-table #hdScrolltbl-1, .resource-planning-table #hdScrolltbl-2 {
+        overflow-y: scroll;
+        min-width: 1970px !important;
+        height: 632px !important;
+    }
+    .resource-planning-table #hdtbl-1, .resource-planning-table #hdtbl-2 {
+        min-width: 1953px !important;
+        width: auto !important;
+        visibility: visible;
+        top: 0px !important;
+        position: absolute;
+        background-color: #fff;
+        z-index: 1;
+    }
+.resource-planning-table .table {
+    margin-bottom: 0px;
+    background-color: #fff;
+}
+
+@media (max-width: 1500px) {
+    .resource-planning-table {
+        height: 530px;
+    }
+        .resource-planning-table #hdScrolltbl-1, .resource-planning-table #hdScrolltbl-2 {
+            height: 512px !important;
+        }
+}
+
+.resource-planning-table.resource-planning-table2 {
+    width: 50%;
+}
+
+.resource-report-table .table td, .resource-report-table .table th {
+    padding: 8px 3px;
+    vertical-align: middle;
+}
+
+.table th, .table thead tr th, .table td {
+    font-size: 13px;
+}
+
+.resource-planning-table .dropdown > .dropdown-menu {
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 4px;
+    height: 100%;
+    margin: 0px;
+    background-color: transparent;
+    box-shadow: none;
+    min-width: auto;
+}
+
+.resource-planning-table .dropdown > input.dropdown-menu, .resource-planning-table .dropdown > select.dropdown-menu {
+    background-color: #fff;
+}
+
+.resource-planning-table .dropdown > .dropdown-menu textarea.form-control {
+    resize: none;
+    width: 100%;
+    height: 100%;
+}
+
+.resource-planning-table .dropdown {
+    position: absolute;
+    min-height: 31px;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    padding: 5px;
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+    line-height: 16px;
+}
+
+.resource-planning-table .dropdown #dLabel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    padding: 6px;
+    min-height: 31px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.resource-planning-table .dropdown.open {
+    margin-bottom: 0px;
+}
+
+.resource-planning-table .table > tbody > tr > th, .resource-planning-table .table > tfoot > tr > td,
+.resource-planning-table .table > tfoot > tr > th, .resource-planning-table .table > thead > tr > td, .resource-planning-table .table > thead > tr > th {
+    padding: 6px 5px;
+    vertical-align: middle;
+    position: relative;
+}
+
+.resource-planning-table .table > tbody > tr > td {
+    padding: 0px;
+    position: relative;
+    vertical-align: middle;
+}
+
+.resource-planning-table .table > thead > tr > th:nth-child(8), .resource-planning-table .table > thead > tr > th:nth-child(9), .resource-planning-table .table > thead > tr > th:nth-child(10) {
+    text-align: center;
+}
+
+.resource-planning-table .table > thead > tr > th {
+    white-space: nowrap;
+}
+
+.table-bordered, .table-bordered > tbody > tr > td, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > td, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > thead > tr > th {
+    border: 1px solid #ccc;
+}
+
+.resource-planning-table .contact .icon {
+    background-color: #651bc8;
+    border: 3px solid #5bb85c;
+    border-radius: 3px !important;
+    font-size: 10px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 24px;
+    color: #fff;
+    vertical-align: bottom;
+    margin-bottom: -3px;
+}
+
+.resource-planning-table .contact {
+    position: absolute;
+    bottom: 7px;
+    left: 4px;
+}
+
+.th-no {
+    width: 40px !important;
+}
+.th-project-name {
+    width: 200px !important;
+}
+.th-project-note {
+    width: 200px !important;
+}
+.th-budget {
+    width: 100px !important;
+}
+.th-er {
+    width: 37px !important;
+}
+.th-person-name {
+    width: 140px !important;
+}
+.th-person-note {
+    width: 140px !important;
+}
+.th-month {
+    width: auto !important;
+    min-width: 110px !important;
+}
+
+.resource-planning-person-name .form-control {
+    display: none;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+.resource-planning-person-name select.form-control {
+    height: 26px;
+}
+
+.resource-planning-person-name textarea {
+    resize: none;
+    vertical-align: middle;
+}
+.resource-report-note {
+    position: relative;
+    padding: 0px 3px;
+    max-width: 160px
+}
+    .resource-report-note .dropdown {
+        position: inherit;
+        min-height: 18px;
+        padding: 0px;
+    }
+    .resource-report-note .dropdown-menu {
+        margin-top: 0px;
+        top: -5px;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        box-shadow: none;
+        border: 0px;
+        padding: 0px;
+        min-height: 30px;
+    }
+        .resource-report-note .dropdown-menu textarea.form-control {
+            resize: none;
+            height: 28px;
+            padding: 4px 6px;
+            width: 100%;
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+        }
+
+.resource-planning-person-name {
+    padding: 0px !important;
+    max-width: 156px;
+    min-width: 100px;
+}
+
+    .resource-planning-person-name > div:first-child {
+        padding-left: 5px;
+        padding-right: 5px;
+        position: absolute;
+        left: 0px;
+        top: 50%;
+        width: 100%;
+        height: 30px;
+        margin-top: -15px;
+        line-height: 30px;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    .resource-planning-person-name .glyphicon-minus-sign {
+        color: #ec0000;
+    }
+
+    .resource-planning-person-name .text {
+        padding: 0px 5px;
+    }
+
+.resource-planning-table .glyphicon-minus-sign {
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.yellow {
+    background-color: #ffff00;
+}
+
+.green {
+    background-color: #6dfd6f;
+}
+
+.red {
+    background-color: #ff0000;
+}
+
+.red2 {
+    background-color: #fd6721;
+}
+
+.grey {
+    background-color: #f3f3f3;
+}
+
+.amber {
+    background-color: #FFC200;
+}
+
+.lightgreen {
+    background-color: #90EE90;
+}
+
+.edit-work-load-box {
+    position: absolute;
+    background-color: #fff;
+    z-index: 9999;
+    min-width: 370px;
+    top: -2px;
+    border: 1px solid #333;
+    border-radius: 6px !important;
+    overflow: hidden;
+    left: -1px;
+    display: none;
+    width: 466px;
+}
+
+.edit-work-load-box-header .title {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0px;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    padding: 10px 15px;
+}
+
+.edit-work-load-box .close-icon {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    color: #ccc;
+    display: inline-block;
+}
+
+.edit-work-load-box .form-group label {
+    float: left;
+    font-size: 18px;
+}
+
+.edit-work-load-box .form-group {
+    margin-bottom: 5px;
+}
+
+    .edit-work-load-box .form-group .form-control {
+        border-radius: 5px !important;
+        border-color: #e6e6e6;
+    }
+
+.edit-work-load-box-content {
+    padding: 15px 25px;
+}
+
+    .edit-work-load-box-content .weeks .list {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+    }
+
+        .edit-work-load-box-content .weeks .list .item {
+            display: inline-block;
+        }
+
+        .edit-work-load-box-content .weeks .list .btn {
+            background-color: transparent;
+            border-color: #ccc;
+            padding: 3px 5px;
+            border-radius: 5px !important;
+            min-width: 28px;
+            margin: 0px 3px;
+        }
+
+.edit-work-load-box-footer {
+    background-color: #f2f2f2;
+    border-top: 1px solid #ccc;
+    padding: 10px 15px;
+}
+
+    .edit-work-load-box-footer .btn {
+        padding: 3px 20px;
+        border-radius: 6px !important;
+        margin-left: 10px;
+    }
+
+.edit-work-load-box-content .weeks .list .btn:hover, .edit-work-load-box-content .weeks .list .btn.active {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #fff;
+}
+
+.edit-work-load-box-content .weeks .list {
+    margin-bottom: 10px;
+}
+
+.edit-work-load-box-icon-close {
+    display: inline-block;
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    cursor: pointer;
+    padding: 0px 3px;
+    opacity: 0.6;
+}
+
+.datepicker-box {
+    position: relative;
+}
+
+.icon-datetimepicker {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+    .icon-datetimepicker .fa {
+        color: #000;
+        opacity: 0.5;
+    }
+
+.datepicker-box .form-control {
+    z-index: 3;
+    position: relative;
+    background-color: transparent;
+}
+
+/*CSS new*/
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.yellow {
+    background-color: yellow;
+}
+.white {
+    background-color: white;
+    border: 1px solid #c2cad8 !important;
+}
+.removeBorderTop {
+    border-top: 0px !important;
+}
+
+.textAlign {
+    text-align: center;
+}
+
+.checkbox label::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    margin-left: 15px;
+    padding-right: 2px;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    background-color: #fff;
+    font-size: 12px;
+    -webkit-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    -o-transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+    transition: border 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.checkbox input[type="checkbox"]:checked + label::after {
+    font-family: "fontawesome";
+    content: "\f00c";
+}
+
+.project-note-notdata.dropdown, .project-note-notdata.dropdown #dLabel {
+    position: absolute !important;
+}
+
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice {
+    max-width: 89%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.page-content {
+    padding-top: 25px;
+}
+
+.loader {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url('../img/ajax-loader.gif') 50% 50% no-repeat rgba(0,0,0,0.5);
+    background-size: 100px;
+}
+
+.table > tbody + tbody {
+    border-top-width: 1px;
+}
+
+.select2-results__option {
+    line-height: 16px;
+    font-size: 13px;
+}
+
+.form-control {
+    font-size: 13px;
+}

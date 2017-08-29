@@ -1,0 +1,30 @@
+﻿--------------- Select All --------------- (DONE)
+
+GET - http://localhost:60483/JobTypeDetail/GetAllJobTypeDetail
+
+--------------- Search, Sort and Paging JobTypeDetail --------------- (DONE)
+
+GET - http://localhost:60483/JobTypeDetail/JobTypeDetailPaging?PageNumber=1&PageSize=500&SortColumn=JobNumber&SortAsc=
+
+PageNumber: int -- Page current -- start from 1
+PageSize: int -- Page display in page
+SortColumn: string -- Name column sort
+SortAsc: bool -- Sort ASC or DESC -- default: true (ASC)
+
+--------------- Get JobTypeDetail By Code --------------- (DONE)
+
+GET - http://localhost:60483/JobTypeDetail/JobTypeDetailGetByCode?jobTypeCode=8
+
+jobTypeCode - long
+
+--------------- Update JobTypeDetail --------------- (DONE)
+
+PUT - http://localhost:60483/JobTypeDetail/JobTypeDetailUpdate
+
+"data": {
+	"JobTypeCode": string,
+	"JobTypeDescription": string,
+    "Priority": int,
+	"SlaTime": TimeSpan,
+	"UpdatedBy": string
+}

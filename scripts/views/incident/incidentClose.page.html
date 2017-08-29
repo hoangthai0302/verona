@@ -1,0 +1,97 @@
+<form name="closeIncidentForm" ng-submit="closeIncident(closeIncidentForm.$valid)" novalidate>
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title text-center text-bold">Close Incident</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-7">
+                    <div class="form-group">
+                        <label class="control-label">Incident type</label>
+                        <input type="text" readonly ng-value="incident.IncidentTypeName" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Location</label>
+                        <input type="text" readonly ng-value="incident.Location" class="form-control">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Latitude</label>
+                                <input type="number"  readonly ng-value="incident.Latitude" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Longitude</label>
+                                <input type="number"  readonly ng-value="incident.Longitude"class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5 col-right">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="email">VRM</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly ng-value="incident.Vrm" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Make</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly ng-value="incident.VehicleMakeName" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Colour</label>
+                            <div class="col-sm-10">
+                                <input type="text" readonly ng-value="incident.VehicleColourName" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="form-group col-md-12" >
+                    <label class="control-label">Reason for closing</label>
+                    <textarea name="reason" ng-model = "reason" cols="30" rows="7" class="form-control no-resize" ng-maxlength="500"> </textarea>
+                    <div ng-messages="closeIncidentForm.reason.$error"
+                         ng-if="!closeIncidentForm.reason.$pristine" class="text-danger">
+                        <div ng-message="maxlength">This field must not exceed 500 characters</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Date</label>
+                        <input type="text" ng-value="date" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Time</label>
+                        <input type="text" ng-value="time" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Create by</label>
+                        <input type="text" value="Harrison" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn green">Close incident
+            </button>
+            <button type="button" class="btn btn-default" ng-click="close()">Cancel</button>
+        </div>
+    </div>
+</form>

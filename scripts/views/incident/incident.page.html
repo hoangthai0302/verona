@@ -1,0 +1,286 @@
+﻿<div class="content-styles-first">
+  <div class="row-first row">
+    <div class="col-xs-12 col-lg-10">
+      <div class="col-left row">
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>Incident</legend>
+            <div class="info-details">
+              <div class="info-details-radio">
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="incFilter.status = FILTER.ALL"
+                                ng-checked="incFilter.status == FILTER.ALL" name="status">All</label>
+                </div>
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="incFilter.status = FILTER.CLOSED"
+                                ng-checked="incFilter.status == FILTER.CLOSED" name="status">Closed</label>
+                </div>
+              </div>
+              <div class="info-details-selected">
+                <div class="radio">
+                  <label><input type="radio" ng-click="incFilter.status = FILTER.SELECTED"
+                                ng-checked="incFilter.status == FILTER.SELECTED" name="status">Selected</label>
+                </div>
+                <div class="box-selected">
+                  <input type="text" name="textSelected" positive-number ng-model="incFilter.selectedIncidentNumber"  ng-disabled="incFilter.status !== FILTER.SELECTED" class="form-control">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-4">
+          <fieldset>
+            <legend>Date</legend>
+            <div class="info-details">
+              <div class="info-details-radio">
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="incFilter.date = FILTER.TODAY"
+                                ng-checked="incFilter.date == FILTER.TODAY" name="date">Today</label>
+                </div>
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="incFilter.date = FILTER.THIS_WEEK"
+                                ng-checked="incFilter.date == FILTER.THIS_WEEK" name="date">This week</label>
+                </div>
+                <div class="radio-inline">
+                  <label><input type="radio" ng-click="incFilter.date = FILTER.THIS_MONTH"
+                                ng-checked="incFilter.date == FILTER.THIS_MONTH" name="date">This month</label>
+                </div>
+              </div>
+              <div class="form-horizontal">
+                <div class="form-group flex-center-vetical">
+                  <label class="control-label col-xs-3 no-padding-top" for="email">
+                    <div class="radio no-padding-top">
+                      <label><input type="radio" name="date" ng-click="incFilter.date = FILTER.DATE_RANGE"
+                                    ng-checked="incFilter.date == FILTER.DATE_RANGE">From</label>
+                    </div>
+                  </label>
+
+                  <div class="col-xs-9">
+                    <input type="text" id="incDateFrom" readonly class="form-control" ng-class="{'no-bg':incFilter.date == FILTER.DATE_RANGE}" ng-disabled="incFilter.date !== FILTER.DATE_RANGE" custom-datepicker ng-model = 'incFilter.dateFrom'>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-xs-3 padding-left-35">To</label>
+                  <div class="col-xs-9">
+                    <input type="text" id="incDateTo" readonly class="form-control" ng-class="{'no-bg':incFilter.date == FILTER.DATE_RANGE}" ng-disabled="incFilter.date !== FILTER.DATE_RANGE" custom-datepicker ng-model ='incFilter.dateTo'>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>VRM</legend>
+            <div class="info-details">
+              <div class="info-details-radio">
+                <div class="radio">
+                  <label><input type="radio" ng-click="incFilter.vrm = FILTER.ALL"
+                                ng-checked="incFilter.vrm == FILTER.ALL" name="vrm">All</label>
+                </div>
+              </div>
+              <div class="info-details-selected">
+                <div class="radio">
+                  <label><input type="radio" ng-click="incFilter.vrm = FILTER.SELECTED"
+                                ng-checked="incFilter.vrm == FILTER.SELECTED" name="vrm">Selected</label>
+                </div>
+                <div class="box-selected">
+                  <input type="text" name="textSelected" upper-case ng-model='incFilter.selectedVRM'
+                         ng-disabled="incFilter.vrm !== FILTER.SELECTED" class="form-control">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info col-xs-12 col-sm-6 col-lg-2">
+          <fieldset>
+            <legend>CEO</legend>
+            <div class="info-details">
+              <div class="info-details-radio">
+                <div class="radio">
+                  <label><input type="radio" ng-click="incFilter.ceo = FILTER.ALL"
+                                ng-checked="incFilter.ceo == FILTER.ALL" name="ceo">All</label>
+                </div>
+              </div>
+              <div class="info-details-selected">
+                <div class="radio">
+                  <label><input type="radio" ng-click="incFilter.ceo = FILTER.SELECTED"
+                                ng-checked="incFilter.ceo == FILTER.SELECTED" name="ceo">Selected</label>
+                </div>
+                <div class="box-selected">
+                  <select name="" ng-disabled="incFilter.ceo !== FILTER.SELECTED"
+                          ng-options="item.Name for item in ceos track by item.Code" ng-model="incFilter.selectedCEO"
+                          class="form-control">
+                    <option value=""></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+        <div class="col-left__info job-queue col-xs-12 col-sm-12 col-lg-2">
+          <div class="box-btn-incident incident row">
+            <div class="col-xs-6 col-lg-12">
+              <button type="button" class="btn button-default btn-primary" ng-click="search()">Search</button>
+
+            </div>
+            <div class="col-xs-6 col-lg-12">
+              <button type="button" class="btn button-default btn-primary " ng-click="refresh()">Reset</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-lg-2">
+      <div class="col-right row">
+        <div class="col-xs-6 col-xs-offset-3 col-lg-12 col-lg-offset-0">
+          <button type="button"
+                  class="btn btn-primary button-default btn-add-incident margin-top-15" ng-click="openAddIncidentPopup()">Add a new
+            incident
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="row-second row">
+    <div class="col-xs-12 col-md-10">
+      <div class="col-left">
+        <div class="table-content">
+          <table id='tbl_incidents' class="table table-bordered table-dark table-condensed table-responsive" style="table-layout: fixed">
+            <thead>
+            <tr class="pointer" >
+              <th ng-click="handleSort('IncidentNumber')" ng-class="{'toggle-sort':isActive('IncidentNumber')}" style="width:100px;">Incident # <i ng-class="getSortClass('IncidentNumber')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('IncidentTypeName')" ng-class="{'toggle-sort':isActive('IncidentTypeName')}">Description <i ng-class="getSortClass('IncidentTypeName')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('TimeReported')" style="width:130px;" ng-class="{'toggle-sort':isActive('TimeReported')}">Date/Time <i ng-class="getSortClass('TimeReported')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Vrm')" style="width:130px;" ng-class="{'toggle-sort':isActive('Vrm')}">VRM <i ng-class="getSortClass('Vrm')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('Location')" ng-class="{'toggle-sort':isActive('Location')}">Location <i ng-class="getSortClass('Location')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('CeoName')" ng-class="{'toggle-sort':isActive('CeoName')}">CEO <i ng-class="getSortClass('CeoName')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('JobNumber')" style="width:100px;" ng-class="{'toggle-sort':isActive('JobNumber')}">Job # <i ng-class="getSortClass('JobNumber')" aria-hidden="true"></i></th>
+              <th ng-click="handleSort('JobStatus')" style="width:100px;" ng-class="{'toggle-sort':isActive('JobStatus')}">Job status <i ng-class="getSortClass('JobStatus')" aria-hidden="true"></i></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr class="cursor-default" ng-repeat="incident in incidents track by $index"
+                ng-click="onSelectIncident(incident)"
+                ng-class="{'code-red':Utils.isCodeRed(incident),'active':incident.IncidentNumber == selectedIncident.IncidentNumber}">
+              <td>{{incident.IncidentNumber}}</td>
+              <td>{{incident.IncidentTypeName}}</td>
+              <td>{{Utils.extractDatetime(incident.TimeReported)}}</td>
+              <td>{{incident.Vrm}}</td>
+              <td>{{incident.Location}}</td>
+              <td>{{incident.CeoName}}</td>
+              <td>{{incident.JobNumber}}</td>
+              <td>{{incident.JobStatus}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+        <div ng-show="pager.pages.length > 1">
+          <ul class="pagination pull-right">
+            <li ng-class="{'disabled': pager.currentPage == 1}"><a href="javascript:void(0)"
+                                                                   ng-click="gotoPage(1)"><<</a></li>
+
+            <li ng-repeat="i in pager.pages" ng-class="{'active':pager.currentPage == i}">
+              <a href="javascript:void(0)" ng-click="gotoPage(i)">{{i}}</a>
+            </li>
+
+            <li ng-class="{'disabled': pager.currentPage == pager.totalPages}"><a href="javascript:void(0)"
+                                                                                  ng-click="gotoPage(pager.totalPages)">
+              >> </a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-2">
+      <div class="col-right">
+        <div class="box-btn-right row">
+          <div class="col-xs-4 col-sm-4 col-md-12">
+            <button type="button" class="btn btn-success button-default no-margin-top"
+                    ng-click="openAssignCeo()">Assign CEO
+            </button>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-12">
+            <button type="button" class="btn btn-success button-default"
+                    ng-click="openViewIncidentPopup()">View details
+            </button>
+          </div>
+          <div class="col-xs-4 col-sm-4 col-md-12">
+          <button type="button" class="btn btn-success button-default" ng-click="openCloseIncidentPopup()">Close
+            incident
+          </button>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#popup-code-red">Code Red</button>-->
+
+<!-- Modal -->
+<div id="popup-code-red" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-uppercase text-center text-bold">code red</h4>
+      </div>
+      <div class="modal-body">
+        <p class="text-center text-uppercase text-bold">office in immediate danger</p>
+        <div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="email">CEO:</label>
+              <div class="col-sm-10">
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Latitude:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2">Longitude:</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" placeholder="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2 text-uppercase" for="pwd">Location:</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/ng-template" id="reasonEmptyModal.html">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-body">
+      <h2>Enter the reason you are closing the incident before continuing</h2>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="close()">OK</button>
+    </div>
+  </div>
+</script>
+

@@ -1,0 +1,81 @@
+﻿--------------- Search, Sort and Paging Incident list --------------- (DONE)
+
+GET - http://localhost:60483/IncidentList/SearchIncident?IncidentAll=&IncidentClosed=&IncidentNumber=&Today=false&TimeReportedFrom=1974/01/01&TimeReportedTo=2019/01/01&VrmAll=&Vrm=&CeoAll=false&Ceo=20&PageNumber=1&PageSize=20&SortColumn=&SortAsc=
+
+IncidentAll: bool -- Option Incident All -- default: true
+IncidentClosed: bool -- Option Incident Close -- default: false
+IncidentNumber: long -- Incident input from textbox
+Today: bool -- Option Today -- default: true
+TimeReportedFrom: datetime
+TimeReportedTo: datetime
+VrmAll: bool -- Option Vrm All -- default: true
+Vrm: string
+CeoAll: bool -- Option CEO All -- default: true
+Ceo: int
+PageNumber: int -- Page current -- start from 1
+PageSize: int -- Page display in page
+SortColumn: string -- Name column sort
+SortAsc: bool -- Sort ASC or DESC -- default: true (ASC)
+
+---------------Insert Incident --------------- (DONE)
+
+POST - http://localhost:60483/IncidentList/InsertIncident
+
+"data": {
+	"IncidentType": long
+	"Vrm": string
+	"VehicleMake": long
+	"VehicleColour": long
+	"Location": string
+	"Latitude": decimal
+	"Longitude": decimal
+	"Notes": string
+	"TimeReported": datetime
+	"UpdatedBy": string
+}
+
+--------------- Update Incident --------------- (DONE)
+
+PUT - http://localhost:60483/IncidentList/UpdateIncident
+
+"data": {
+	"IncidentType": long
+	"Vrm": string
+	"VehicleMake": long
+	"VehicleColour": long
+	"Location": string
+	"Latitude": decimal
+	"Longitude": decimal
+	"Notes": string
+	"TimeReported": datetime
+	"UpdatedBy": string
+}
+
+--------------- Close Incident --------------- (DONE)
+
+PUT - http://localhost:60483/IncidentList/CloseIncident
+
+"data": {
+	"incidentNumber": long
+	"notes": string
+}
+
+--------------- GET IncidentListDetail --------------- (DONE)
+
+GET - http://localhost:60483/IncidentList/IncidentListDetail?incidentNumber=10
+
+incidentNumber: long
+
+---------------Save Assign Ceo --------------- (DONE)
+
+POST - http://localhost:60483/IncidentList/AssignCeoSave
+
+"data": {
+	"incidentNumber": long
+	"ceoCode": long
+}
+
+return :{
+	Item1:    --- JobNumber
+	Item2:    --- JobStatus
+}

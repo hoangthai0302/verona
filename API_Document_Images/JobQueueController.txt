@@ -1,0 +1,85 @@
+﻿--------------- Search, Sort and Paging JobQueue --------------- (DONE)
+
+GET - http://localhost:60483/JobQueue/SearchJobQueue?Today=false&TimeReportedFrom=1974/01/01&TimeReportedTo=2019/01/01&VrmAll=true&Vrm=&CeoAll=&Ceo=&PriorityAll=&Priority=&Status=&PageNumber=1&PageSize=500&SortColumn=JobNumber&SortAsc=
+
+Today: bool -- Option Today -- default: true
+TimeReportedFrom: datetime
+TimeReportedTo: datetime
+VrmAll: bool -- Option Vrm All -- default: true
+Vrm: string
+CeoAll: bool -- Option CEO All -- default: true
+Ceo: int
+PriorityAll: bool -- Option Priority -- default: true
+Priority: int
+Status: string -- C | N | P | R | X
+PageNumber: int -- Page current -- start from 1
+PageSize: int -- Page display in page
+SortColumn: string -- Name column sort
+SortAsc: bool -- Sort ASC or DESC -- default: true (ASC)
+
+--------------- View Job Progress Screen --------------- (DONE)
+GET - http://localhost:60483/JobQueue/JobQueueDetail?jobNumber=501
+
+--------------- View Job Progress Screen UPDATE --------------- (DONE)
+
+PUT - http://localhost:60483/JobQueue/UpdateJobTask?jobNumber=501
+
+	"jobTaskList":[
+		{"Id":101, "StepOutcome":true},
+		{"Id":102, "StepOutcome":false},
+		{"Id":103, "StepOutcome":true},
+		{"Id":104, "StepOutcome":false},
+		{"Id":105, "StepOutcome":true},
+		{"Id":106, "StepOutcome":true},
+		{"Id":107, "StepOutcome":true},
+		{"Id":108, "StepOutcome":true},
+		{"Id":109, "StepOutcome":true},
+		{"Id":110, "StepOutcome":true},
+		{"Id":111, "StepOutcome":true},
+		{"Id":112, "StepOutcome":true}
+	]
+
+--------------- Change Job Details Screen --------------- (DONE)
+PUT  - http://localhost:60483/JobQueue/JobQueueUpdate
+
+"data": {
+    "JobNumber": "501",
+    "Vrm": "xxxxxxx",
+    "VehicleMake": "9",
+    "VehicleColour": "9",
+    "Location": "qeqweqweqwe",
+    "Latitude": "",
+    "Longitude": "",
+    "SlaDateTime": "2016/09/09 06:35:00",
+    "Ceo": "9",
+    "Priority": "6",
+    "Notes": "adasdasdas",
+    "UpdatedBy": "admin"
+  }
+  
+--------------- Cancel Job Screen --------------- (DONE)
+PUT  - http://localhost:60483/JobQueue/JobQueueCancel
+
+"data": {
+    "JobNumber": "501",
+    "Notes": "adasdasdas",
+    "UpdatedBy": "admin"
+  }
+
+--------------- Reject Job Screen --------------- (DONE)
+PUT  - http://localhost:60483/JobQueue/JobQueueReject
+
+"data": {
+    "JobNumber": "501",
+    "ReasonNumber": "10",
+    "UpdatedBy": "admin"
+  }
+
+--------------- Set Job to Completed Screen --------------- (DONE)
+PUT  - http://localhost:60483/JobQueue/JobQueueCompleted
+
+"data": {
+    "JobNumber": "501",
+    "Notes": "adasdasdas",
+    "UpdatedBy": "admin"
+  }

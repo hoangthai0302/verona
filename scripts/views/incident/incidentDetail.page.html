@@ -1,0 +1,113 @@
+<form name="incidentDetailForm" ng-submit="updateIncident(incidentDetailForm.$valid,incidentDetailForm.$error)" novalidate>
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title text-center text-bold">Incident Details</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-xs-7">
+                    <div class="form-group">
+                        <label class="control-label">Incident Type</label>
+                        <select name="" ng-disabled="selectedCeo != null" class="form-control" ng-options="item.JobTypeDescription for item in jobTypes track by item.JobTypeCode"  ng-model="selectedJobType">
+                        </select>
+                    </div>
+                    <div class="form-group" ng-class="{ 'has-error' : (incidentDetailForm.location.$error.required || incidentDetailForm.location.$error.maxlength) && !incidentDetailForm.location.$pristine }">
+                        <label class="control-label">Location*</label>
+                        <input type="text" ng-readonly="selectedCeo != null" name="location" max-length50 name="location" ng-model="incident.Location" required class="form-control">
+                        <div ng-messages="incidentDetailForm.location.$error"
+                             ng-if="!incidentDetailForm.location.$pristine" class="text-danger">
+                            <div ng-message="required">This field is required</div>
+                            <div ng-message="maxlength">This field must not exceed 50 characters</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Latitude</label>
+                                <input type="text" latitude ng-readonly="selectedCeo != null" ng-model="incident.Latitude" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">Longitude</label>
+                                <input type="text" longitude ng-readonly="selectedCeo != null"  ng-model="incident.Longitude" class="form-control no-resize">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5 col-right">
+                    <div class="form-horizontal">
+                        <div class="form-group" ng-class="{ 'has-error' : (incidentDetailForm.vrm.$error.required || incidentDetailForm.vrm.$error.maxlength) && !incidentDetailForm.vrm.$pristine }">
+                            <label class="control-label col-sm-2" for="email">VRM*</label>
+                            <div class="col-sm-10">
+                                <input type="text" ng-readonly="selectedCeo != null" required max-length50 upper-case name="vrm" ng-model="incident.Vrm" class="form-control">
+                                <div ng-messages="incidentDetailForm.vrm.$error"
+                                     ng-if="!incidentDetailForm.vrm.$pristine" class="text-danger">
+                                    <div ng-message="required">This field is required</div>
+                                    <div ng-message="maxlength">This field must not exceed 50 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Make</label>
+                            <div class="col-sm-10">
+                                <select name="asdf" ng-disabled="selectedCeo != null" class="form-control" ng-options="item.Make for item in vehicleMakes track by item.MakeNumber" ng-model="selectedMake">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">Colour</label>
+                            <div class="col-sm-10">
+                                <select name="" ng-disabled="selectedCeo != null" class="form-control" ng-options="item.Colour for item in vehicleColors track by item.ColourNumber"  ng-model="selectedColor">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2">CEO</label>
+                            <div class="col-sm-10">
+                                <select name="" disabled class="form-control" ng-options="item.Name for item in ceos track by item.Code" ng-model="selectedCeo">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12" ng-class="{ 'has-error' : incidentDetailForm.notes.$error.maxlength && !incidentDetailForm.notes.$pristine }">
+                    <label class="control-label">Additional information</label>
+                    <textarea name="notes" ng-readonly="selectedCeo != null" max-length-notes cols="30" rows="7" ng-model="incident.Notes" class="form-control"> </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Date</label>
+                        <input type="text" ng-model="date" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Time</label>
+                        <input type="text" ng-model="time" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="control-label">Create by</label>
+                        <input type="text" value="Harrison" class="form-control" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" ng-disabled="selectedCeo != null" class="btn green">Apply changes</button>
+            <button type="button" class="btn btn-default" ng-click="close()">Cancel</button>
+        </div>
+    </div>
+</form>

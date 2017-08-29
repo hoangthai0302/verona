@@ -1,0 +1,31 @@
+.v-top {
+    vertical-align: top !important;
+}
+
+.no-margin-top {
+    margin-top: 0 !important;
+}
+
+.no-resize{
+    resize:none !important;
+}
+
+.bg-lightgray {
+    background: #eef1f5;
+}
+
+.pointer {
+    cursor:pointer;
+}
+
+.toggle-sort i{
+    opacity: 0;
+}
+
+.toggle-sort:hover i{
+    opacity :1 ;
+}
+
+.cursor-default {
+    cursor:default;
+}

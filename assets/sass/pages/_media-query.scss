@@ -1,0 +1,159 @@
+@media (max-width: 768px) {
+  .wrapper-tabs__content {
+    &.container-fluid {
+      padding: 10px;
+    }
+    .row-first {
+      .col-left {
+        height: auto;
+        .radio {
+          display: inline-block;
+          margin-right: 20px;
+        }
+        &__info {
+          .box-btn-incident {
+            display: flex;
+            flex-direction: row;
+            height: auto;
+          }
+        }
+      }
+      .col-right {
+        height: auto;
+      }
+    }
+  }
+  .admin-page {
+    .job-parameters-page {
+      .col-right {
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        button {
+          &:first-child {
+            margin-right: 20px;
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .reject-reason-page {
+      .col-right {
+        padding: 0;
+        @include flex-row-between;
+        align-items: center;
+        height: initial;
+        button:not(:first-child):not(:last-child){
+          @include margin-vertical(7.5px, 7.5px)
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-dialog.modal-large {
+    width: 768px;
+    margin: 30px auto;
+  }
+  .row-first{
+    .form-horizontal .control-label{
+      text-align: left;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .wrapper-tabs__content{
+    .row-second {
+      margin-top: 20px;
+      .col-right {
+        .box-btn-right {
+          text-align: center;
+          padding-right: 20px;
+          padding-left: 20px;
+          display: block;
+          button {
+            margin-top: 5px;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .wrapper-tabs__content{
+    .row-first{
+      .col-left{
+        &__info {
+          height: 100%;
+          &:first-child {
+            padding-right: 5px;
+          }
+          &:last-child {
+            padding-left: 5px;
+          }
+        }
+        &__info:not(:first-child):not(:last-child) {
+          padding-left: 5px;
+          padding-right: 5px;
+        }
+        .radio-inline+.radio-inline{
+          margin-left: 10px;
+        }
+      }
+
+    }
+  }
+}
+
+
+@media (max-width: 1200px) {
+.wrapper-tabs__content .row-first {
+  .col-right {
+    height: auto;
+    display: block;
+    padding: 0;
+    &.job-queue{
+      display: none;
+    }
+  }
+  .col-left__info{
+    &.job-queue{
+      height: auto;
+    }
+    .box-btn-incident{
+      &.incident{
+        height: auto;
+        display: block;
+      }
+
+    }
+  }
+}
+}
+
+@media (max-width: 991px) {
+  .page-header .page-header-menu {
+    display: initial;
+  }
+  .wrapper-tabs__content .row-first {
+    .col-right {
+      &.job-queue{
+        display: none;
+      }
+    }
+    .col-left__info{
+      &.job-queue{
+        height: auto;
+      }
+    }
+  }
+  .table-responsive{
+    width: 1000px;
+  }
+}
+
+
